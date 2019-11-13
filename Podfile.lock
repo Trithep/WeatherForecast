@@ -1,0 +1,129 @@
+PODS:
+  - Alamofire (4.9.1)
+  - Differentiator (3.1.0)
+  - IQKeyboardManagerSwift (6.5.2)
+  - KeychainAccess (4.1.0)
+  - Kingfisher (5.9.0):
+    - Kingfisher/Core (= 5.9.0)
+  - Kingfisher/Core (5.9.0)
+  - MBProgressHUD (1.1.0)
+  - Moya (12.0.1):
+    - Moya/Core (= 12.0.1)
+  - Moya-ObjectMapper/Core (2.8):
+    - Moya (~> 12.0)
+    - ObjectMapper (~> 3.4)
+  - Moya-ObjectMapper/RxSwift (2.8):
+    - Moya-ObjectMapper/Core
+    - Moya/RxSwift
+    - RxSwift (~> 4)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - Moya/RxSwift (12.0.1):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - ObjectMapper (3.5.1)
+  - R.swift (5.1.0):
+    - R.swift.Library (~> 5.1.0)
+  - R.swift.Library (5.1.0)
+  - Result (4.1.0)
+  - Reusable (4.1.0):
+    - Reusable/Storyboard (= 4.1.0)
+    - Reusable/View (= 4.1.0)
+  - Reusable/Storyboard (4.1.0)
+  - Reusable/View (4.1.0)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxGesture (2.2.0):
+    - RxCocoa (~> 4.5)
+    - RxSwift (~> 4.5)
+  - RxKingfisher (0.6.0):
+    - Kingfisher (~> 5)
+    - RxCocoa (~> 4.3)
+    - RxSwift (~> 4.3)
+  - RxOptional (3.6.2):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.5.0)
+  - RxSwiftExt (3.4.0):
+    - RxSwiftExt/Core (= 3.4.0)
+    - RxSwiftExt/RxCocoa (= 3.4.0)
+  - RxSwiftExt/Core (3.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwiftExt/RxCocoa (3.4.0):
+    - RxCocoa (~> 4.0)
+    - RxSwiftExt/Core
+  - RxSwiftUtilities (2.1.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+
+DEPENDENCIES:
+  - IQKeyboardManagerSwift
+  - KeychainAccess
+  - MBProgressHUD
+  - Moya-ObjectMapper/RxSwift
+  - R.swift
+  - Reusable
+  - RxCocoa
+  - RxDataSources
+  - RxGesture
+  - RxKingfisher
+  - RxOptional
+  - RxSwift
+  - RxSwiftExt
+  - RxSwiftUtilities
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Differentiator
+    - IQKeyboardManagerSwift
+    - KeychainAccess
+    - Kingfisher
+    - MBProgressHUD
+    - Moya
+    - Moya-ObjectMapper
+    - ObjectMapper
+    - R.swift
+    - R.swift.Library
+    - Result
+    - Reusable
+    - RxCocoa
+    - RxDataSources
+    - RxGesture
+    - RxKingfisher
+    - RxOptional
+    - RxSwift
+    - RxSwiftExt
+    - RxSwiftUtilities
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  IQKeyboardManagerSwift: c75366f1f19590e8caeae45fcd5815c9289d6099
+  KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
+  Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Moya-ObjectMapper: c514b5eafcfd5e260f85f7a5bf66895a217e2b37
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
+  R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
+  R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  Reusable: 82be188f29d96dc5eff0db7b2393bcc08d2cdd5b
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxGesture: c1b7bf17166b0ef9d642a9510f8bac5785f18990
+  RxKingfisher: dec802b7c2e1609f50a862e100f5e2019d517c4c
+  RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
+  RxSwiftUtilities: b486df7454cc867c3ea626ce24110511159e7044
+
+PODFILE CHECKSUM: 0afef50a86da31ce70fdf764bc4236720002e12c
+
+COCOAPODS: 1.8.4
