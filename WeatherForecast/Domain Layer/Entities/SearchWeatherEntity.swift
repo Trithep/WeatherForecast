@@ -22,4 +22,7 @@ final class SearchWeatherEntity: Mappable {
   }
 }
 
-
+enum TemperatureType: String {
+  case celsius = "metric"
+  case fahrenheit = "imperial"
+}

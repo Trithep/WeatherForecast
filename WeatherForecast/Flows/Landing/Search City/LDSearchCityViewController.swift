@@ -23,7 +23,7 @@ final class LDSearchCityViewController: LandingBaseViewController {
   
   // MARK: Private variables
   private let services = UseCaseProvider(networkManager: NetworkManager(environment: .server))
-  private lazy var viewModel: LDSearchCityType! = LDSearchCityViewModel(services: services)
+  private lazy var viewModel: LDSearchCityType = LDSearchCityViewModel(services: services)
   
   // MARK: Configure
   func configure(_ viewModel: LDSearchCityType) {
@@ -72,6 +72,7 @@ final class LDSearchCityViewController: LandingBaseViewController {
     searchButton.rx.tap
       .withLatestFrom(searchTextField.rx.text)
       .filterNil()
+      .filterEmpty()
       .bind(to: viewModel.inputs.searchButtonAction)
       .disposed(by: disposeBag)
     

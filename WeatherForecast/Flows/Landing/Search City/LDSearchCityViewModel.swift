@@ -27,11 +27,6 @@ protocol LDSearchCityOutputs {
   var weatherForecastViewModel: LDWeatherForecastType? { get }
 }
 
-enum TemperatureType: String {
-  case celsius = "metric"
-  case fahrenheit = "imperial"
-}
-
 final class LDSearchCityViewModel: LDSearchCityType, LDSearchCityInputs, LDSearchCityOutputs {
   
   var inputs: LDSearchCityInputs { return self }
