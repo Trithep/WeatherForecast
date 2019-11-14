@@ -6,8 +6,8 @@
 import Moya
 
 enum WeatherTarget {
-  case currentWeather(WeatherRequest)
-  case forecastWeather(WeatherRequest)
+  case searchWeather(SearchWeatherRequest)
+  case forecastWeather(ForecastWeatherRequest)
 }
 
 extension WeatherTarget: TargetType {
@@ -19,7 +19,7 @@ extension WeatherTarget: TargetType {
   
   var path: String {
     switch self {
-    case .currentWeather:
+    case .searchWeather:
       return "weather"
     case .forecastWeather:
       return "forecast"
@@ -28,7 +28,7 @@ extension WeatherTarget: TargetType {
   
   var method: Moya.Method {
     switch self {
-    case .currentWeather, .forecastWeather:
+    case .searchWeather, .forecastWeather:
       return .get
     }
   }
@@ -39,10 +39,10 @@ extension WeatherTarget: TargetType {
   
   var task: Task {
     switch self {
-    case let .currentWeather(requestData):
-      return .requestParameters(parameters: requestData.toJSON(), encoding: JSONEncoding.default)
+    case let .searchWeather(requestData):
+      return .requestParameters(parameters: requestData.toJSON(), encoding: URLEncoding.default)
     case let .forecastWeather(requestData):
-      return .requestParameters(parameters: requestData.toJSON(), encoding: JSONEncoding.default)
+      return .requestParameters(parameters: requestData.toJSON(), encoding: URLEncoding.default)
     }
   }
   

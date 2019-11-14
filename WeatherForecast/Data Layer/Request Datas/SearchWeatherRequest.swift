@@ -4,12 +4,7 @@
 //
 import ObjectMapper
 
-enum TemperatureType: String {
-  case celsius = "metric"
-  case fahrenheit = "imperial"
-}
-
-final class WeatherRequest: Mappable {
+final class SearchWeatherRequest: Mappable {
   // MARK: - Properties
   var name: String?
   var unit: String?

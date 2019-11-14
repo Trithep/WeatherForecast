@@ -24,6 +24,8 @@ enum AppError: Error {
 
 class NetworkManager: Networkable {
   
+  static var defaultMessage: String = "The request was not completed."
+  
   // MARK: - Typealias or Enum
   enum Environment {
     case local
@@ -113,3 +115,8 @@ class NetworkManager: Networkable {
   }
 }
 
+extension Error {
+  var apiError: AppError {
+    return self as! AppError
+  }
+}
