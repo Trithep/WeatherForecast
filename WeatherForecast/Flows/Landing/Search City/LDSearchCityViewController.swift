@@ -18,6 +18,8 @@ final class LDSearchCityViewController: LandingBaseViewController {
   @IBOutlet private var celsiusButton: UIButton!
   @IBOutlet private var fahrenheitButton: UIButton!
   @IBOutlet private var rightBarButton: UIBarButtonItem!
+  @IBOutlet private var cityNameLabel: UILabel!
+  @IBOutlet private var cityTitleLabel: UILabel!
   
   // MARK: Private variables
   private let services = UseCaseProvider(networkManager: NetworkManager(environment: .server))
@@ -36,6 +38,15 @@ final class LDSearchCityViewController: LandingBaseViewController {
      
       viewController.configure(_viewModel)
     }
+  }
+  
+  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    guard identifier == "showWeatherForcast" else { return false }
+    guard let _ = viewModel.outputs.weatherForecastViewModel else {
+      UIAlertController.okAlert(title: "", message: "Please input your city name", view: self, ok: nil)
+      return false
+    }
+    return true
   }
   
   // MARK: - View Life Cycle
@@ -85,6 +96,10 @@ final class LDSearchCityViewController: LandingBaseViewController {
       .drive(navigationController?.view.rx.isProgressHUDVisible ?? view.rx.isProgressHUDVisible)
       .disposed(by: disposeBag)
     
+    viewModel.outputs.displayCityName
+      .drive(cityNameLabel.rx.text)
+      .disposed(by: disposeBag)
+    
     let _searchWeatherResult = viewModel.outputs.searchWeatherResult
     
     _searchWeatherResult
@@ -102,6 +117,12 @@ final class LDSearchCityViewController: LandingBaseViewController {
       .map { $0.count == 0 }
       .bind(to: toggleStack.rx.isHidden)
       .disposed(by: disposeBag)
+    
+    _searchWeatherResult
+    .asObservable()
+    .map { $0.count == 0 }
+    .bind(to: cityTitleLabel.rx.isHidden)
+    .disposed(by: disposeBag)
       
     viewModel.outputs.searchNotFound
       .asObservable()

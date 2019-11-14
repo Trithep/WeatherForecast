@@ -37,6 +37,7 @@
 		289EDD01237D463600882E8E /* LDWeatherForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289EDD00237D463600882E8E /* LDWeatherForecastViewModel.swift */; };
 		289EDD03237D49CA00882E8E /* ForecastWeatherUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289EDD02237D49CA00882E8E /* ForecastWeatherUseCase.swift */; };
 		289EDD05237D4A6100882E8E /* ForecastWeatherEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289EDD04237D4A6100882E8E /* ForecastWeatherEntity.swift */; };
+		289EDD07237D7F9100882E8E /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289EDD06237D7F9100882E8E /* UIAlertController+Extensions.swift */; };
 		28A127D0237B966400426E3D /* DB AdmanRounded X It.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28A127CC237B966400426E3D /* DB AdmanRounded X It.ttf */; };
 		28A127D1237B966400426E3D /* DB AdmanRounded X Bd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28A127CD237B966400426E3D /* DB AdmanRounded X Bd.ttf */; };
 		28A127D2237B966400426E3D /* DB AdmanRounded X.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28A127CE237B966400426E3D /* DB AdmanRounded X.ttf */; };
@@ -92,6 +93,7 @@
 		289EDD00237D463600882E8E /* LDWeatherForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDWeatherForecastViewModel.swift; sourceTree = "<group>"; };
 		289EDD02237D49CA00882E8E /* ForecastWeatherUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherUseCase.swift; sourceTree = "<group>"; };
 		289EDD04237D4A6100882E8E /* ForecastWeatherEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherEntity.swift; sourceTree = "<group>"; };
+		289EDD06237D7F9100882E8E /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		28A127CC237B966400426E3D /* DB AdmanRounded X It.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DB AdmanRounded X It.ttf"; sourceTree = "<group>"; };
 		28A127CD237B966400426E3D /* DB AdmanRounded X Bd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DB AdmanRounded X Bd.ttf"; sourceTree = "<group>"; };
 		28A127CE237B966400426E3D /* DB AdmanRounded X.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DB AdmanRounded X.ttf"; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				289EDCFA237CE90C00882E8E /* DateFormatTransform.swift */,
 				28A127F8237C478000426E3D /* Reactive+Extensions.swift */,
+				289EDD06237D7F9100882E8E /* UIAlertController+Extensions.swift */,
 				2877A08F237C6B0D00175E75 /* UIAlertController+Rx.swift */,
 				289EDCFC237D402D00882E8E /* UIButton+Extensions.swift */,
 				289EDCF8237C81B900882E8E /* UITableView+Extensions.swift */,
@@ -591,6 +594,7 @@
 				28A127F2237C403F00426E3D /* LDSearchCityViewModel.swift in Sources */,
 				2877A08E237C60E700175E75 /* ForecastWeatherRequest.swift in Sources */,
 				28A127F0237C3F0400426E3D /* UITextField+Extensions.swift in Sources */,
+				289EDD07237D7F9100882E8E /* UIAlertController+Extensions.swift in Sources */,
 				2800F52B237B09B400F39CF8 /* WeatherTarget.swift in Sources */,
 				28A127F9237C478000426E3D /* Reactive+Extensions.swift in Sources */,
 				289EDD01237D463600882E8E /* LDWeatherForecastViewModel.swift in Sources */,
@@ -755,6 +759,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WeatherForecast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -762,7 +767,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.WeatherForecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -773,6 +778,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WeatherForecast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -780,7 +786,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.WeatherForecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

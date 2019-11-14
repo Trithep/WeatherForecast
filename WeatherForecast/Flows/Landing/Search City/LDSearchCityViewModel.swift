@@ -20,6 +20,7 @@ protocol LDSearchCityInputs {
 
 protocol LDSearchCityOutputs {
   var isLoading: Driver<Bool> { get }
+  var displayCityName: Driver<String> { get }
   var searchWeatherResult: Driver<[LDWeatherForecastListType]> { get }
   var searchNotFound: Driver<String> { get }
   var currentTemperature: Driver<TemperatureType> { get }
@@ -42,6 +43,7 @@ final class LDSearchCityViewModel: LDSearchCityType, LDSearchCityInputs, LDSearc
   
   // MARK: Outputs
   var isLoading: Driver<Bool> { return _isLoading.asDriver() }
+  var displayCityName: Driver<String> = .empty()
   var searchWeatherResult: Driver<[LDWeatherForecastListType]> = .empty()
   var searchNotFound: Driver<String> = .empty()
   var currentTemperature: Driver<TemperatureType> { return temperatureType.asDriver() }
@@ -89,6 +91,11 @@ final class LDSearchCityViewModel: LDSearchCityType, LDSearchCityInputs, LDSearc
       }
       .filter { !$0.isCompleted }
       .share()
+    
+    displayCityName = searchResult
+      .elements()
+      .map { $0.name ?? "" }
+      .asDriver(onErrorDriveWith: .empty())
     
     searchWeatherResult = searchResult
       .elements() /// Success  case, Binding result to display weather on view.

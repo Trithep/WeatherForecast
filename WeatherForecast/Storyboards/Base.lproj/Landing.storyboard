@@ -15,20 +15,26 @@
         <!--Weather Current-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LDSearchCityViewController" id="BYZ-38-t0r" customClass="LDSearchCityViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LDSearchCityViewController" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="LDSearchCityViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_footer" translatesAutoresizingMaskIntoConstraints="NO" id="j2Y-ve-nKB">
+                                <rect key="frame" x="0.0" y="88" width="414" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="j2Y-ve-nKB" secondAttribute="height" multiplier="69:20" id="4DH-ld-BCp"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2sz-yf-NQh">
-                                <rect key="frame" x="40" y="255" width="334" height="296.5"/>
+                                <rect key="frame" x="40" y="278" width="334" height="340.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather in your city" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu9-BG-VF0">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="36.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36.5" id="IrP-rk-LpM"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="DBAdmanRoundedX-Bold" family="DB AdmanRounded X" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="DBAdmanRoundedX-Bold" family="DB AdmanRounded X" pointSize="22"/>
                                         <color key="textColor" red="0.84705882352941175" green="0.51984393600000001" blue="0.3529003859" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -87,21 +93,39 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqs-dA-9XZ">
-                                        <rect key="frame" x="0.0" y="76.5" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="76.5" width="334" height="120"/>
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current City:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8g-PZ-fgT">
+                                                <rect key="frame" x="0.0" y="83" width="92.5" height="29"/>
+                                                <fontDescription key="fontDescription" name="DBAdmanRoundedX-Bold" family="DB AdmanRounded X" pointSize="22"/>
+                                                <color key="textColor" red="0.84705882349999995" green="0.51984393600000001" blue="0.3529003859" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="      " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPh-ET-Zau">
+                                                <rect key="frame" x="102.5" y="83" width="33" height="29"/>
+                                                <fontDescription key="fontDescription" name="DBAdmanRoundedX-Bold" family="DB AdmanRounded X" pointSize="22"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="yr1-Pq-Oys"/>
+                                            <constraint firstItem="OPh-ET-Zau" firstAttribute="leading" secondItem="y8g-PZ-fgT" secondAttribute="trailing" constant="10" id="FEx-t3-dGF"/>
+                                            <constraint firstItem="OPh-ET-Zau" firstAttribute="centerY" secondItem="y8g-PZ-fgT" secondAttribute="centerY" id="YzW-KY-lZL"/>
+                                            <constraint firstAttribute="bottom" secondItem="y8g-PZ-fgT" secondAttribute="bottom" constant="8" id="ebE-QY-LsM"/>
+                                            <constraint firstItem="y8g-PZ-fgT" firstAttribute="leading" secondItem="eqs-dA-9XZ" secondAttribute="leading" id="wWo-Q4-6e2"/>
+                                            <constraint firstAttribute="height" constant="120" id="yr1-Pq-Oys"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TcY-ja-xEr">
-                                        <rect key="frame" x="0.0" y="116.5" width="334" height="100"/>
+                                        <rect key="frame" x="0.0" y="196.5" width="334" height="64"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="pYX-aj-uzB"/>
+                                            <constraint firstAttribute="height" constant="64" id="pYX-aj-uzB"/>
                                         </constraints>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEt-RI-dgs">
-                                        <rect key="frame" x="0.0" y="216.5" width="334" height="80"/>
+                                        <rect key="frame" x="0.0" y="260.5" width="334" height="80"/>
                                         <subviews>
                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="Tn9-NL-p1v">
                                                 <rect key="frame" x="234" y="21" width="100" height="38"/>
@@ -163,8 +187,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="j2Y-ve-nKB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5nq-mP-23O"/>
+                            <constraint firstItem="j2Y-ve-nKB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FNl-9c-hTH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2sz-yf-NQh" secondAttribute="trailing" constant="40" id="IZs-Uj-cRn"/>
-                            <constraint firstItem="2sz-yf-NQh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.9" id="O0U-Sf-TEH"/>
+                            <constraint firstItem="2sz-yf-NQh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="O0U-Sf-TEH"/>
+                            <constraint firstItem="j2Y-ve-nKB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SF6-qd-Vcj"/>
                             <constraint firstItem="2sz-yf-NQh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aoH-PP-wcR"/>
                             <constraint firstItem="2sz-yf-NQh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="dmf-4x-ibL"/>
                         </constraints>
@@ -174,12 +201,14 @@
                         <barButtonItem key="rightBarButtonItem" title="Forecast" id="K09-TS-FIx">
                             <color key="tintColor" red="0.84705882349999995" green="0.52156862749999999" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="A7V-hu-r2M" kind="show" id="aKh-JX-gME"/>
+                                <segue destination="A7V-hu-r2M" kind="show" identifier="showWeatherForcast" id="aKh-JX-gME"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="celsiusButton" destination="tmd-AF-b8F" id="sSe-5G-WpH"/>
+                        <outlet property="cityNameLabel" destination="OPh-ET-Zau" id="c1l-8q-ZYU"/>
+                        <outlet property="cityTitleLabel" destination="y8g-PZ-fgT" id="2hJ-a5-efs"/>
                         <outlet property="fahrenheitButton" destination="IcI-w5-hRu" id="2iZ-P8-KYf"/>
                         <outlet property="rightBarButton" destination="K09-TS-FIx" id="KBO-3f-PSB"/>
                         <outlet property="searchButton" destination="hGa-Ch-woi" id="qB5-sh-HCy"/>
@@ -242,4 +271,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img_footer" width="989" height="162"/>
+    </resources>
 </document>

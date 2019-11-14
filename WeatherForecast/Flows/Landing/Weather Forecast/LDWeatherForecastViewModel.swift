@@ -59,7 +59,7 @@ final class LDWeatherForecastViewModel: LDWeatherForecastType, LDWeatherForecast
     
     let forecastResult = onViewDidAppear
       .withLatestFrom(weatherData)
-      .map { data in ForecastWeatherRequest(name: data.name, unit: data.type, limit: 5) }
+      .map { data in ForecastWeatherRequest(name: data.name, unit: data.type, limit: 0) }
       .flatMapLatest {
         services.makeWeatherForecastUseCase().execute(data: $0)
           .asObservable().trackActivity(isLoading)
@@ -71,7 +71,9 @@ final class LDWeatherForecastViewModel: LDWeatherForecastType, LDWeatherForecast
     weatherForecastResult = forecastResult.elements()
       .withLatestFrom(weatherData) { (result: $0, type: $1) }
       .map { data -> [LDWeatherForecastListType]? in
-        return data.result.list?.compactMap { LDWeatherForecastListViewModel(searchWeather: $0, temperatureType: .celsius) }
+        return data.result.list?
+          .compactMap { LDWeatherForecastListViewModel(searchWeather: $0,
+                                                       temperatureType: data.type.type) }
       }
       .filterNil()
       .asDriver(onErrorDriveWith: .empty())

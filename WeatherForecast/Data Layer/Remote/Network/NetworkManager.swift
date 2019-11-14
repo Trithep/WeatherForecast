@@ -82,12 +82,13 @@ class NetworkManager: Networkable {
             observer.onNext(response)
             observer.onCompleted()
           case let .failure(moyaError):
-            guard case let .underlying(_, response) = moyaError, let _response = response else {
-              return observer.onError(AppError.unknown)
+            guard case let .underlying(_, response) = moyaError,
+              let _response = response,
+              let errorEntity = try? _response.mapObject(ErrorEntity.self) else {
+                return observer.onError(AppError.unknown)
             }
             
-            let error: ErrorEntity = .init(code: _response.statusCode, message: _response.description)
-            observer.onError(AppError.service(error))
+            observer.onError(AppError.service(errorEntity))
           }
         }
         
