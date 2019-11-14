@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="width" constant="78" id="Cbm-wz-dOr"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ic_scattered_cloud" translatesAutoresizingMaskIntoConstraints="NO" id="c7f-Y8-dQB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="03d" translatesAutoresizingMaskIntoConstraints="NO" id="c7f-Y8-dQB">
                                 <rect key="frame" x="136" y="415" width="105" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="105" id="DVr-qz-Rpm"/>
@@ -46,7 +46,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_scattered_cloud" width="50" height="50"/>
+        <image name="03d" width="50" height="50"/>
         <image name="img_sun" width="78" height="58.5"/>
     </resources>
 </document>

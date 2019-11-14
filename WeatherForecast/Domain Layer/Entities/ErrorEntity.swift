@@ -3,17 +3,13 @@ import ObjectMapper
 
 final class ErrorEntity: Mappable {
   // MARK: - Properties
-  var code: Int?
+  var code: String?
   var message: String?
   
   // MARK: - Object Life Cycle
-  init(code: Int, message: String) {
-    self.message = message
+  init(code: String, message: String) {
     self.code = code
-  }
-  
-  init() {
-    
+    self.message = message
   }
   
   required public init?(map: Map) {
@@ -22,7 +18,7 @@ final class ErrorEntity: Mappable {
   
   // MARK: - Internal Methods
   func mapping(map: Map) {
-    code              <- map["code"]
+    code              <- map["cod"]
     message           <- map["message"]
   }
   
