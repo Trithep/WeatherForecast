@@ -3,7 +3,7 @@ import Moya_ObjectMapper
 import RxSwift
 
 protocol ForecastWeatherRepository {
-  func forecastWeather(requestData: ForecastWeatherRequest) -> Single<[SearchWeatherEntity]>
+  func forecastWeather(requestData: ForecastWeatherRequest) -> Single<ForecastWeatherEntity>
 }
 
 final class ForecastWeatherRepositoryImpl: ForecastWeatherRepository {
@@ -16,9 +16,9 @@ final class ForecastWeatherRepositoryImpl: ForecastWeatherRepository {
   }
   
   // MARK: - Public Methods
-  func forecastWeather(requestData: ForecastWeatherRequest) -> Single<[SearchWeatherEntity]> {
+  func forecastWeather(requestData: ForecastWeatherRequest) -> Single<ForecastWeatherEntity> {
     return networkManager.request(target: WeatherTarget.forecastWeather(requestData))
-      .mapArray(SearchWeatherEntity.self)
+      .mapObject(ForecastWeatherEntity.self)
       .asSingle()
   }
 }

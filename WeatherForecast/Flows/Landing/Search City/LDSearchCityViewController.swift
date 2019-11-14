@@ -9,7 +9,7 @@ import RxCocoa
 import RxSwiftUtilities
 import RxOptional
 
-final class LDSearchCityViewController: BaseViewController {
+final class LDSearchCityViewController: LandingBaseViewController {
 
   @IBOutlet private var searchTextField: UITextField!
   @IBOutlet private var searchButton: UIButton!
@@ -17,19 +17,28 @@ final class LDSearchCityViewController: BaseViewController {
   @IBOutlet private var toggleStack: UIStackView!
   @IBOutlet private var celsiusButton: UIButton!
   @IBOutlet private var fahrenheitButton: UIButton!
+  @IBOutlet private var rightBarButton: UIBarButtonItem!
   
   // MARK: Private variables
   private let services = UseCaseProvider(networkManager: NetworkManager(environment: .server))
   private lazy var viewModel: LDSearchCityType! = LDSearchCityViewModel(services: services)
   
   // MARK: Configure
-  
   func configure(_ viewModel: LDSearchCityType) {
     self.viewModel = viewModel
   }
   
+  // MARK: Seque
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    super.prepare(for: segue, sender: sender)
+    if let viewController = segue.destination as? LDWeatherForecastViewController,
+      let _viewModel = viewModel.outputs.weatherForecastViewModel {
+     
+      viewController.configure(_viewModel)
+    }
+  }
+  
   // MARK: - View Life Cycle
-
   override func loadView() {
     super.loadView()
     bindInputs()
@@ -117,27 +126,5 @@ final class LDSearchCityViewController: BaseViewController {
         self?.fahrenheitButton.setBackgroundColor(!isCelsius ? Color.orange : .clear, forState: .normal)
       })
       .disposed(by: disposeBag)
-  }
-}
-
-fileprivate extension UIButton {
-
-  /// Sets the background color to use for the specified button state.
-  func setBackgroundColor(_ color: UIColor, forState: UIControlState) {
-
-    let minimumSize: CGSize = CGSize(width: 1.0, height: 1.0)
-
-    UIGraphicsBeginImageContext(minimumSize)
-
-    if let context = UIGraphicsGetCurrentContext() {
-      context.setFillColor(color.cgColor)
-      context.fill(CGRect(origin: .zero, size: minimumSize))
-    }
-
-    let colorImage = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-
-    clipsToBounds = true
-    setBackgroundImage(colorImage, for: forState)
   }
 }

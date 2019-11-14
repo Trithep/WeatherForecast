@@ -15,4 +15,9 @@ final class UseCaseProvider: UseCaseProtocol {
     let searchWeatherRepository = SearchWeatherRepositoryImpl(networkManager: networkManager)
     return SearchWeatherUseCaseImpl(searchWeatherRepository: searchWeatherRepository)
   }
+  
+  func makeWeatherForecastUseCase() -> ForecastWeatherUseCase {
+    let forecastWeatherRepository = ForecastWeatherRepositoryImpl(networkManager: networkManager)
+    return ForecastWeatherUseCaseImpl(forecastWeatherRepository: forecastWeatherRepository)
+  }
 }

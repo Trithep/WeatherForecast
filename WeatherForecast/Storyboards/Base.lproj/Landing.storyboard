@@ -12,7 +12,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Search City View Controller-->
+        <!--Weather Current-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="LDSearchCityViewController" id="BYZ-38-t0r" customClass="LDSearchCityViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,6 +38,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Your city name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9Rx-IM-aMy" customClass="IBTextField" customModule="WeatherForecast" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="264" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.84705882349999995" green="0.51984393600000001" blue="0.3529003859" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="XRW-r3-TKo"/>
                                                 </constraints>
@@ -169,10 +170,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="C9O-PX-vsV"/>
+                    <navigationItem key="navigationItem" title="Weather Current" id="zuv-Te-z0l">
+                        <barButtonItem key="rightBarButtonItem" title="Forecast" id="K09-TS-FIx">
+                            <color key="tintColor" red="0.84705882349999995" green="0.52156862749999999" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="A7V-hu-r2M" kind="show" id="aKh-JX-gME"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="celsiusButton" destination="tmd-AF-b8F" id="sSe-5G-WpH"/>
                         <outlet property="fahrenheitButton" destination="IcI-w5-hRu" id="2iZ-P8-KYf"/>
+                        <outlet property="rightBarButton" destination="K09-TS-FIx" id="KBO-3f-PSB"/>
                         <outlet property="searchButton" destination="hGa-Ch-woi" id="qB5-sh-HCy"/>
                         <outlet property="searchTextField" destination="9Rx-IM-aMy" id="n8G-83-En1"/>
                         <outlet property="tableView" destination="TcY-ja-xEr" id="Ipg-gp-3d1"/>
@@ -182,6 +191,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="92.410714285714278"/>
+        </scene>
+        <!-- 5 Days Forecast-->
+        <scene sceneID="bhX-k6-aHr">
+            <objects>
+                <viewController storyboardIdentifier="LDWeatherForecastViewController" id="A7V-hu-r2M" customClass="LDWeatherForecastViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7CH-0Q-jMY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uw5-sG-bMl">
+                                <rect key="frame" x="20" y="88" width="374" height="774"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4kF-Mg-ZoO" firstAttribute="trailing" secondItem="uw5-sG-bMl" secondAttribute="trailing" constant="20" id="TFF-je-gAP"/>
+                            <constraint firstItem="uw5-sG-bMl" firstAttribute="top" secondItem="4kF-Mg-ZoO" secondAttribute="top" id="Vsz-gO-0pl"/>
+                            <constraint firstItem="4kF-Mg-ZoO" firstAttribute="bottom" secondItem="uw5-sG-bMl" secondAttribute="bottom" id="n7e-e4-zLY"/>
+                            <constraint firstItem="uw5-sG-bMl" firstAttribute="leading" secondItem="4kF-Mg-ZoO" secondAttribute="leading" constant="20" id="y0S-vr-aD9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4kF-Mg-ZoO"/>
+                    </view>
+                    <navigationItem key="navigationItem" title=" 5 Days Forecast" id="I59-F4-3Jb"/>
+                    <connections>
+                        <outlet property="tableView" destination="uw5-sG-bMl" id="zEJ-Ne-7Y2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CZ5-Kx-eVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2017" y="92"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tih-L1-l7w">

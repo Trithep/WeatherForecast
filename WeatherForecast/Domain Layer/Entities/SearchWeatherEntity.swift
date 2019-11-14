@@ -7,6 +7,7 @@ final class SearchWeatherEntity: Mappable {
   var weathers: [WeatherEntity]?
   var temperature: TemperatureEntity?
   var date: Date?
+  var name: String?
   
   required init?(map: Map) {
   
@@ -16,7 +17,8 @@ final class SearchWeatherEntity: Mappable {
     coordinate    <- map["coord"]
     weathers      <- map["weather"]
     temperature   <- map["main"]
-    date          <- (map["dt_txt"], DateFormatTransform(dateFormat: "yyyy-MM-dd"))
+    date          <- (map["dt_txt"], DateFormatTransform(dateFormat: "yyyy-MM-dd HH:mm:ss"))
+    name          <- map["name"]
   }
 }
 

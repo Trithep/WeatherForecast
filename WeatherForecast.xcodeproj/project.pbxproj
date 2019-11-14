@@ -32,6 +32,11 @@
 		289EDCF7237C801700882E8E /* LDWeatherForecastList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289EDCF6237C801700882E8E /* LDWeatherForecastList.xib */; };
 		289EDCF9237C81B900882E8E /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289EDCF8237C81B900882E8E /* UITableView+Extensions.swift */; };
 		289EDCFB237CE90C00882E8E /* DateFormatTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289EDCFA237CE90C00882E8E /* DateFormatTransform.swift */; };
+		289EDCFD237D402D00882E8E /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289EDCFC237D402D00882E8E /* UIButton+Extensions.swift */; };
+		289EDCFF237D448A00882E8E /* LandingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289EDCFE237D448A00882E8E /* LandingBaseViewController.swift */; };
+		289EDD01237D463600882E8E /* LDWeatherForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289EDD00237D463600882E8E /* LDWeatherForecastViewModel.swift */; };
+		289EDD03237D49CA00882E8E /* ForecastWeatherUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289EDD02237D49CA00882E8E /* ForecastWeatherUseCase.swift */; };
+		289EDD05237D4A6100882E8E /* ForecastWeatherEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289EDD04237D4A6100882E8E /* ForecastWeatherEntity.swift */; };
 		28A127D0237B966400426E3D /* DB AdmanRounded X It.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28A127CC237B966400426E3D /* DB AdmanRounded X It.ttf */; };
 		28A127D1237B966400426E3D /* DB AdmanRounded X Bd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28A127CD237B966400426E3D /* DB AdmanRounded X Bd.ttf */; };
 		28A127D2237B966400426E3D /* DB AdmanRounded X.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28A127CE237B966400426E3D /* DB AdmanRounded X.ttf */; };
@@ -82,6 +87,11 @@
 		289EDCF6237C801700882E8E /* LDWeatherForecastList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LDWeatherForecastList.xib; sourceTree = "<group>"; };
 		289EDCF8237C81B900882E8E /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		289EDCFA237CE90C00882E8E /* DateFormatTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatTransform.swift; sourceTree = "<group>"; };
+		289EDCFC237D402D00882E8E /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		289EDCFE237D448A00882E8E /* LandingBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingBaseViewController.swift; sourceTree = "<group>"; };
+		289EDD00237D463600882E8E /* LDWeatherForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDWeatherForecastViewModel.swift; sourceTree = "<group>"; };
+		289EDD02237D49CA00882E8E /* ForecastWeatherUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherUseCase.swift; sourceTree = "<group>"; };
+		289EDD04237D4A6100882E8E /* ForecastWeatherEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherEntity.swift; sourceTree = "<group>"; };
 		28A127CC237B966400426E3D /* DB AdmanRounded X It.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DB AdmanRounded X It.ttf"; sourceTree = "<group>"; };
 		28A127CD237B966400426E3D /* DB AdmanRounded X Bd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DB AdmanRounded X Bd.ttf"; sourceTree = "<group>"; };
 		28A127CE237B966400426E3D /* DB AdmanRounded X.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DB AdmanRounded X.ttf"; sourceTree = "<group>"; };
@@ -185,6 +195,7 @@
 				289EDCFA237CE90C00882E8E /* DateFormatTransform.swift */,
 				28A127F8237C478000426E3D /* Reactive+Extensions.swift */,
 				2877A08F237C6B0D00175E75 /* UIAlertController+Rx.swift */,
+				289EDCFC237D402D00882E8E /* UIButton+Extensions.swift */,
 				289EDCF8237C81B900882E8E /* UITableView+Extensions.swift */,
 				28A127EF237C3F0400426E3D /* UITextField+Extensions.swift */,
 			);
@@ -233,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				28A127D5237BA36B00426E3D /* BaseViewController.swift */,
+				289EDCFE237D448A00882E8E /* LandingBaseViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -256,11 +268,12 @@
 		2800F51C237AFA9700F39CF8 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				2800F527237B019200F39CF8 /* ErrorEntity.swift */,
-				2877A083237C4D4F00175E75 /* SearchWeatherEntity.swift */,
 				2877A085237C4E5B00175E75 /* CoordinateEntity.swift */,
-				2877A087237C4EAF00175E75 /* WeatherEntity.swift */,
+				2800F527237B019200F39CF8 /* ErrorEntity.swift */,
+				289EDD04237D4A6100882E8E /* ForecastWeatherEntity.swift */,
+				2877A083237C4D4F00175E75 /* SearchWeatherEntity.swift */,
 				2877A089237C4EE800175E75 /* TemperatureEntity.swift */,
+				2877A087237C4EAF00175E75 /* WeatherEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -268,6 +281,7 @@
 		2800F51D237AFAA200F39CF8 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				289EDD02237D49CA00882E8E /* ForecastWeatherUseCase.swift */,
 				2877A07E237C4CA300175E75 /* SearchWeatherUseCase.swift */,
 				28A127F3237C418E00426E3D /* Services */,
 			);
@@ -394,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				28A127E2237BA7AC00426E3D /* LDWeatherForecastViewController.swift */,
+				289EDD00237D463600882E8E /* LDWeatherForecastViewModel.swift */,
 			);
 			path = "Weather Forecast";
 			sourceTree = "<group>";
@@ -556,9 +571,12 @@
 			files = (
 				28A127EC237C391C00426E3D /* IBTextField.swift in Sources */,
 				28A127D8237BA39800426E3D /* BaseList.swift in Sources */,
+				289EDD05237D4A6100882E8E /* ForecastWeatherEntity.swift in Sources */,
 				2877A08C237C5DD100175E75 /* ForecastWeatherRepository.swift in Sources */,
 				2800F524237AFB0E00F39CF8 /* NetworkManager.swift in Sources */,
+				289EDCFF237D448A00882E8E /* LandingBaseViewController.swift in Sources */,
 				2877A084237C4D4F00175E75 /* SearchWeatherEntity.swift in Sources */,
+				289EDD03237D49CA00882E8E /* ForecastWeatherUseCase.swift in Sources */,
 				2877A088237C4EAF00175E75 /* WeatherEntity.swift in Sources */,
 				2877A086237C4E5B00175E75 /* CoordinateEntity.swift in Sources */,
 				28A127DD237BA47B00426E3D /* Styleguide.swift in Sources */,
@@ -567,6 +585,7 @@
 				2800F530237B1E3F00F39CF8 /* AppConfig.swift in Sources */,
 				2877A08A237C4EE800175E75 /* TemperatureEntity.swift in Sources */,
 				2800F4FE237AF8AA00F39CF8 /* AppDelegate.swift in Sources */,
+				289EDCFD237D402D00882E8E /* UIButton+Extensions.swift in Sources */,
 				2800F525237AFB0E00F39CF8 /* Networkable.swift in Sources */,
 				28A127EA237C38F100426E3D /* IBView.swift in Sources */,
 				28A127F2237C403F00426E3D /* LDSearchCityViewModel.swift in Sources */,
@@ -574,6 +593,7 @@
 				28A127F0237C3F0400426E3D /* UITextField+Extensions.swift in Sources */,
 				2800F52B237B09B400F39CF8 /* WeatherTarget.swift in Sources */,
 				28A127F9237C478000426E3D /* Reactive+Extensions.swift in Sources */,
+				289EDD01237D463600882E8E /* LDWeatherForecastViewModel.swift in Sources */,
 				28A127EE237C392900426E3D /* IBButton.swift in Sources */,
 				28A127D6237BA36B00426E3D /* BaseViewController.swift in Sources */,
 				2800F500237AF8AA00F39CF8 /* SceneDelegate.swift in Sources */,

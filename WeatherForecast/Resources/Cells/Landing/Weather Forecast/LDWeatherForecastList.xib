@@ -24,40 +24,40 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEg-rO-7UV">
-                        <rect key="frame" x="0.0" y="0.0" width="10" height="60"/>
+                        <rect key="frame" x="0.0" y="0.0" width="10" height="70"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="8iw-qQ-WJW"/>
+                            <constraint firstAttribute="height" constant="70" id="8iw-qQ-WJW"/>
                             <constraint firstAttribute="width" constant="10" id="rjW-MF-OlW"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igb-gC-Lba">
-                        <rect key="frame" x="10" y="18.5" width="27" height="23.5"/>
+                        <rect key="frame" x="10" y="16" width="27" height="23.5"/>
                         <fontDescription key="fontDescription" name="DBAdmanRoundedX" family="DB AdmanRounded X" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01n" translatesAutoresizingMaskIntoConstraints="NO" id="SlM-QT-KID">
-                        <rect key="frame" x="45" y="7" width="46" height="46"/>
+                        <rect key="frame" x="45" y="4.5" width="46" height="46"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="46" id="gHI-ye-Y7y"/>
                             <constraint firstAttribute="width" secondItem="SlM-QT-KID" secondAttribute="height" multiplier="1:1" id="y6N-7K-Y7u"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bes-Pw-9he">
-                        <rect key="frame" x="186.5" y="4" width="227.5" height="52"/>
+                        <rect key="frame" x="186.5" y="4" width="227.5" height="47"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bhA-Y2-mok">
-                                <rect key="frame" x="0.0" y="0.0" width="113.5" height="52"/>
+                                <rect key="frame" x="0.0" y="0.0" width="113.5" height="47"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zT7-WL-q9j">
-                                        <rect key="frame" x="0.0" y="0.0" width="113.5" height="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="113.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="DBAdmanRoundedX-Bold" family="DB AdmanRounded X" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWg-Tf-BC0">
-                                        <rect key="frame" x="0.0" y="26" width="113.5" height="26"/>
+                                        <rect key="frame" x="0.0" y="23.5" width="113.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="DBAdmanRoundedX" family="DB AdmanRounded X" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -65,16 +65,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aHY-Ej-FRw">
-                                <rect key="frame" x="113.5" y="0.0" width="114" height="52"/>
+                                <rect key="frame" x="113.5" y="0.0" width="114" height="47"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tH-z0-Aj0">
-                                        <rect key="frame" x="0.0" y="0.0" width="114" height="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="114" height="23.5"/>
                                         <fontDescription key="fontDescription" name="DBAdmanRoundedX-Bold" family="DB AdmanRounded X" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCf-1Z-0eP">
-                                        <rect key="frame" x="0.0" y="26" width="114" height="26"/>
+                                        <rect key="frame" x="0.0" y="23.5" width="114" height="23.5"/>
                                         <fontDescription key="fontDescription" name="DBAdmanRoundedX" family="DB AdmanRounded X" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -83,11 +83,19 @@
                             </stackView>
                         </subviews>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEH-7W-Tgn">
+                        <rect key="frame" x="10" y="54" width="394" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="eYt-KW-uHt"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="bes-Pw-9he" firstAttribute="top" secondItem="lgq-zB-6n8" secondAttribute="top" constant="4" id="439-zJ-GIb"/>
                     <constraint firstItem="Igb-gC-Lba" firstAttribute="leading" secondItem="lgq-zB-6n8" secondAttribute="leading" constant="10" id="4je-Gd-izn"/>
                     <constraint firstAttribute="bottom" secondItem="KEg-rO-7UV" secondAttribute="bottom" id="Au6-AA-qc6"/>
+                    <constraint firstItem="CEH-7W-Tgn" firstAttribute="leading" secondItem="lgq-zB-6n8" secondAttribute="leading" constant="10" id="IJY-0V-pqQ"/>
                     <constraint firstItem="KEg-rO-7UV" firstAttribute="leading" secondItem="lgq-zB-6n8" secondAttribute="leading" id="KUB-Ed-tQn"/>
                     <constraint firstAttribute="trailing" secondItem="bes-Pw-9he" secondAttribute="trailing" id="RbF-Lt-MnR"/>
                     <constraint firstItem="SlM-QT-KID" firstAttribute="centerY" secondItem="lgq-zB-6n8" secondAttribute="centerY" id="Rsj-Xx-uod"/>
@@ -95,7 +103,9 @@
                     <constraint firstAttribute="bottom" secondItem="bes-Pw-9he" secondAttribute="bottom" constant="4" id="TD1-E1-iXb"/>
                     <constraint firstItem="KEg-rO-7UV" firstAttribute="top" secondItem="lgq-zB-6n8" secondAttribute="top" id="Yyp-3U-B4G"/>
                     <constraint firstItem="SlM-QT-KID" firstAttribute="leading" secondItem="Igb-gC-Lba" secondAttribute="trailing" constant="8" id="hbj-jp-xMY"/>
+                    <constraint firstAttribute="trailing" secondItem="CEH-7W-Tgn" secondAttribute="trailing" constant="10" id="mOU-TC-cr0"/>
                     <constraint firstItem="bes-Pw-9he" firstAttribute="width" secondItem="lgq-zB-6n8" secondAttribute="width" multiplier="0.55" id="pDM-H0-XXS"/>
+                    <constraint firstAttribute="bottom" secondItem="CEH-7W-Tgn" secondAttribute="bottom" id="wB4-Ez-zrI"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

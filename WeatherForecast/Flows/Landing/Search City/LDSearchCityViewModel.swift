@@ -23,6 +23,7 @@ protocol LDSearchCityOutputs {
   var searchWeatherResult: Driver<[LDWeatherForecastListType]> { get }
   var searchNotFound: Driver<String> { get }
   var currentTemperature: Driver<TemperatureType> { get }
+  var weatherForecastViewModel: LDWeatherForecastType? { get }
 }
 
 enum TemperatureType: String {
@@ -44,12 +45,19 @@ final class LDSearchCityViewModel: LDSearchCityType, LDSearchCityInputs, LDSearc
   var searchWeatherResult: Driver<[LDWeatherForecastListType]> = .empty()
   var searchNotFound: Driver<String> = .empty()
   var currentTemperature: Driver<TemperatureType> { return temperatureType.asDriver() }
+  var weatherForecastViewModel: LDWeatherForecastType? {
+    guard let weather = searchData.weather else { return nil }
+    return LDWeatherForecastViewModel(services: services,
+                                      cityName: weather.name ?? "",
+                                      temperatureType: searchData.type)
+  }
   
   // MARK: Private variables
   private var services: UseCaseProtocol
   private var disposeBag: DisposeBag
   private var temperatureType: BehaviorRelay<TemperatureType>
   private let _isLoading: ActivityIndicator
+  private var searchData: (weather: SearchWeatherEntity?, type: TemperatureType)
   
   private lazy var searchWeatherUseCase: SearchWeatherUseCase = {
     services.makeSearchWeatherCityUseCase()
@@ -61,6 +69,7 @@ final class LDSearchCityViewModel: LDSearchCityType, LDSearchCityInputs, LDSearc
     self.disposeBag = .init()
     self._isLoading = .init()
     self.temperatureType = .init(value: .fahrenheit)
+    self.searchData = (nil, .fahrenheit)
     
     searchBinding(self.services, self._isLoading)
     toggleBinding()
@@ -84,6 +93,7 @@ final class LDSearchCityViewModel: LDSearchCityType, LDSearchCityInputs, LDSearc
     searchWeatherResult = searchResult
       .elements() /// Success  case, Binding result to display weather on view.
       .withLatestFrom(temperatureType) { (weather: $0, type: $1) }
+      .do(onNext: { [unowned self] (data) in self.searchData = data })
       .map { LDWeatherForecastListViewModel(searchWeather: $0.weather, temperatureType: $0.type) }
       .map { [$0] }
       .asDriver(onErrorDriveWith: .empty())
