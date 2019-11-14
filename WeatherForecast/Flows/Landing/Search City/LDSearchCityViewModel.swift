@@ -19,8 +19,10 @@ protocol LDSearchCityInputs {
 }
 
 protocol LDSearchCityOutputs {
+  var isLoading: Driver<Bool> { get }
   var searchWeatherResult: Driver<[LDWeatherForecastListType]> { get }
   var searchNotFound: Driver<String> { get }
+  var currentTemperature: Driver<TemperatureType> { get }
 }
 
 enum TemperatureType: String {
@@ -38,34 +40,42 @@ final class LDSearchCityViewModel: LDSearchCityType, LDSearchCityInputs, LDSearc
   var temperatureAction: PublishRelay<TemperatureType> = .init()
   
   // MARK: Outputs
+  var isLoading: Driver<Bool> { return _isLoading.asDriver() }
   var searchWeatherResult: Driver<[LDWeatherForecastListType]> = .empty()
   var searchNotFound: Driver<String> = .empty()
+  var currentTemperature: Driver<TemperatureType> { return temperatureType.asDriver() }
   
   // MARK: Private variables
   private var services: UseCaseProtocol
   private var disposeBag: DisposeBag
   private var temperatureType: BehaviorRelay<TemperatureType>
+  private let _isLoading: ActivityIndicator
   
   private lazy var searchWeatherUseCase: SearchWeatherUseCase = {
     services.makeSearchWeatherCityUseCase()
   }()
   
+  // MARK: Init
   init(services: UseCaseProtocol) {
     self.services = services
     self.disposeBag = .init()
+    self._isLoading = .init()
     self.temperatureType = .init(value: .fahrenheit)
     
-    bind()
+    searchBinding(self.services, self._isLoading)
+    toggleBinding()
   }
   
-  private func bind() {
+  // MARK: Private Functions
+  private func searchBinding(_ services: UseCaseProtocol, _ isLoading: ActivityIndicator) {
     
     let searchResult = searchButtonAction /// Press search button then call API to get weather result.
       .withLatestFrom(temperatureType) { (name: $0, type: $1) } /// Making Tuple with city name and temperature type.
       .map { data in SearchWeatherRequest(name: data.name, unit: data.type) } /// Creating request data object.
-      .flatMapLatest { [unowned self] requestData  in
-        self.services.makeSearchWeatherCityUseCase() /// Calling API current weather by city name.
+      .flatMapLatest { requestData  in
+        services.makeSearchWeatherCityUseCase() /// Calling API current weather by city name.
           .execute(data: requestData)
+          .trackActivity(isLoading)
           .asObservable().materialize()
       }
       .filter { !$0.isCompleted }
@@ -73,7 +83,9 @@ final class LDSearchCityViewModel: LDSearchCityType, LDSearchCityInputs, LDSearc
     
     searchWeatherResult = searchResult
       .elements() /// Success  case, Binding result to display weather on view.
-      .map { [LDWeatherForecastListViewModel(searchWeather: $0)] }
+      .withLatestFrom(temperatureType) { (weather: $0, type: $1) }
+      .map { LDWeatherForecastListViewModel(searchWeather: $0.weather, temperatureType: $0.type) }
+      .map { [$0] }
       .asDriver(onErrorDriveWith: .empty())
     
     searchNotFound = searchResult
@@ -87,7 +99,17 @@ final class LDSearchCityViewModel: LDSearchCityType, LDSearchCityInputs, LDSearc
         }
       }
       .asDriver(onErrorDriveWith: .empty())
+  }
+  
+  private func toggleBinding() {
+    temperatureAction
+      .bind(to: temperatureType)
+      .disposed(by: disposeBag)
     
+    temperatureAction
+      .withLatestFrom(searchButtonAction)
+      .bind(to: searchButtonAction)
+      .disposed(by: disposeBag)
   }
   
 }

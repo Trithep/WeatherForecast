@@ -25,19 +25,25 @@ final class LDWeatherForecastListViewModel: LDWeatherForecastListType, LDWeather
   // MARK: Outputs
   var weatherDay: String { return makeWeatherDate(searchWeather) }
   var iconImg: String { return "\(searchWeather.weathers?.first?.icon ?? "-").png" }
-  var temperature: String { return "\(searchWeather.temperature?.temp ?? 0)" }
+  var temperature: String { return "\(searchWeather.temperature?.temp ?? 0) \(makeTemperatureUnit(temperatureType))" }
   var humidity: String { return "\(searchWeather.temperature?.humidity ?? 0)" }
   
   // MARK: Private variables
-  var searchWeather: SearchWeatherEntity
+  private var searchWeather: SearchWeatherEntity
+  private var temperatureType: TemperatureType
   
-  init(searchWeather: SearchWeatherEntity) {
+  init(searchWeather: SearchWeatherEntity, temperatureType: TemperatureType) {
     self.searchWeather = searchWeather
+    self.temperatureType = temperatureType
   }
   
   private func makeWeatherDate(_ searchWeather: SearchWeatherEntity) -> String {
     let _date = searchWeather.date ?? Date()
     return DateFormatter().shortFormat.string(from: _date)
+  }
+  
+  private func makeTemperatureUnit(_ temperatureType: TemperatureType) -> String {
+    return temperatureType == .celsius ? "°C" : "°F"
   }
   
 }

@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2sz-yf-NQh">
-                                <rect key="frame" x="40" y="230" width="334" height="256.5"/>
+                                <rect key="frame" x="40" y="255" width="334" height="296.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather in your city" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu9-BG-VF0">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="36.5"/>
@@ -86,26 +86,84 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqs-dA-9XZ">
-                                        <rect key="frame" x="0.0" y="76.5" width="334" height="80"/>
+                                        <rect key="frame" x="0.0" y="76.5" width="334" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="yr1-Pq-Oys"/>
+                                            <constraint firstAttribute="height" constant="40" id="yr1-Pq-Oys"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TcY-ja-xEr">
-                                        <rect key="frame" x="0.0" y="156.5" width="334" height="100"/>
+                                        <rect key="frame" x="0.0" y="116.5" width="334" height="100"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="pYX-aj-uzB"/>
                                         </constraints>
                                     </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEt-RI-dgs">
+                                        <rect key="frame" x="0.0" y="216.5" width="334" height="80"/>
+                                        <subviews>
+                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="Tn9-NL-p1v">
+                                                <rect key="frame" x="234" y="21" width="100" height="38"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmd-AF-b8F" customClass="IBButton" customModule="WeatherForecast" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="38"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="DBAdmanRoundedX-Bold" family="DB AdmanRounded X" pointSize="16"/>
+                                                        <state key="normal" title="°C">
+                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" red="0.84705882349999995" green="0.52156862749999999" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcI-w5-hRu" customClass="IBButton" customModule="WeatherForecast" customModuleProvider="target">
+                                                        <rect key="frame" x="49" y="0.0" width="51" height="38"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="DBAdmanRoundedX-Bold" family="DB AdmanRounded X" pointSize="16"/>
+                                                        <state key="normal" title="°F">
+                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" red="0.84705882349999995" green="0.52156862749999999" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="38" id="6gz-gf-CcX"/>
+                                                    <constraint firstAttribute="width" constant="100" id="PdT-3H-jmD"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Tn9-NL-p1v" firstAttribute="centerY" secondItem="UEt-RI-dgs" secondAttribute="centerY" id="1WF-5i-VGL"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tn9-NL-p1v" secondAttribute="trailing" id="LEp-ed-Xcm"/>
+                                            <constraint firstAttribute="height" constant="80" id="aLR-eV-fXV"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2sz-yf-NQh" secondAttribute="trailing" constant="40" id="IZs-Uj-cRn"/>
-                            <constraint firstItem="2sz-yf-NQh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.8" id="O0U-Sf-TEH"/>
+                            <constraint firstItem="2sz-yf-NQh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.9" id="O0U-Sf-TEH"/>
                             <constraint firstItem="2sz-yf-NQh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aoH-PP-wcR"/>
                             <constraint firstItem="2sz-yf-NQh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="dmf-4x-ibL"/>
                         </constraints>
@@ -113,9 +171,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="C9O-PX-vsV"/>
                     <connections>
+                        <outlet property="celsiusButton" destination="tmd-AF-b8F" id="sSe-5G-WpH"/>
+                        <outlet property="fahrenheitButton" destination="IcI-w5-hRu" id="2iZ-P8-KYf"/>
                         <outlet property="searchButton" destination="hGa-Ch-woi" id="qB5-sh-HCy"/>
                         <outlet property="searchTextField" destination="9Rx-IM-aMy" id="n8G-83-En1"/>
                         <outlet property="tableView" destination="TcY-ja-xEr" id="Ipg-gp-3d1"/>
+                        <outlet property="toggleStack" destination="Tn9-NL-p1v" id="JHT-v8-F4f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
